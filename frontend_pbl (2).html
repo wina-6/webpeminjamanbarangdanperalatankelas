@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow IT | Peminjaman Barang dan Peralatan Kelas</title>
+    <link rel="stylesheet" href="stylefrontend_pbl.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         HALAMAN LOGIN
+         Tombol Masuk mengarah ke #dasbor, lalu CSS menyembunyikan halaman ini
+         ========================================== -->
+    <div id="login-page">
+        <div class="login-card">
+            <div class="login-brand">
+                <div class="logo-box">b</div>
+                <h2>Borrow IT</h2>
+                <p>Peminjaman Barang dan Peralatan Kelas</p>
+            </div>
+
+            <h3 class="login-title">Masuk</h3>
+
+            <form>
+                <div class="input-group">
+                    <label>Nama Pengguna / NIM</label>
+                    <input type="text" placeholder="Masukkan Username / NIM">
+                </div>
+
+                <div class="input-group">
+                    <label>Kata Sandi</label>
+                    <input type="password" placeholder="Masukkan Kata Sandi">
+                </div>
+
+                <a href="#dasbor" class="btn-login">Masuk</a>
+            </form>
+
+            <a href="#" class="forgot-link">Lupa kata sandi?</a>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         APLIKASI UTAMA
+         ========================================== -->
+    <div id="main-container">
+
+        <!-- Struktur navigasi menu kiri -->
+        <div id="sidebar">
+            <div class="brand-title">🔹Borrow IT</div>
+            <p><small>Peminjaman Barang dan Peralatan Kelas</small></p>
+            <ul class="nav-list">
+                <li><a class="nav-link" href="#dasbor">📊Dasbor</a></li>
+                <li><a class="nav-link" href="#data-transaksi">👥Data Peminjam & Transaksi</a></li>
+                <li><a class="nav-link" href="#manajemen-barang">📦Manajemen Barang</a></li>
+                <li><a class="nav-link" href="#pemantauan-laporan">📋Pemantauan & Laporan</a></li>
+                <li><a class="nav-link" href="#riwayat-peminjaman">🕘Riwayat Peminjaman</a></li>
+                <li><a class="nav-link" href="#notifikasi">🔔Notifikasi</a></li>
+                <li><a class="nav-link" href="#akun-pengaturan">⚙️Akun dan Pengaturan</a></li>
+                <li class="nav-logout"><a class="nav-link" href="#login-page">🚪Keluar</a></li>
+            </ul>
+        </div>
+
+        <!-- Area tampilan data kanan -->
+        <div id="content-area">
+
+            <!--======================= DASBOR================================== -->
+            <section id="dasbor" class="page-section">
+                <h1>📊Dasbor</h1>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Total Barang</h4>
+                        <div class="value">48</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Sedang Dipinjam</h4>
+                        <div class="value">12</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Menunggu Verifikasi</h4>
+                        <div class="value">3</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Terlambat Dikembalikan</h4>
+                        <div class="value value-red">2</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-tables">
+                    <div>
+                        <h3 class="card-title">Peminjaman Terbaru</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Peminjam</th>
+                                    <th>Barang</th>
+                                    <th>Tanggal</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Aulia Rahma</td>
+                                    <td>Laptop Lenovo</td>
+                                    <td>10 Sep 2026</td>
+                                    <td><span class="status-tag status-waiting">Menunggu</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Rizky Pratama</td>
+                                    <td>Proyektor</td>
+                                    <td>9 Sep 2026</td>
+                                    <td><span class="status-tag status-active">Disetujui</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <h3 class="card-title">Barang Perlu Perbaikan</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Barang</th>
+                                    <th>Kondisi</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tripod</td>
+                                    <td>Rusak</td>
+                                    <td><span class="status-tag status-danger">Perlu Perbaikan</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Kamera</td>
+                                    <td>Perlu Perbaikan</td>
+                                    <td><span class="status-tag status-waiting">Dalam Perbaikan</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!--========================DATA PEMINJAM & TRANSAKSI  ====================-->
+            <section id="data-transaksi" class="page-section">
+                <h1>👥Data Peminjam & Transaksi</h1>
+                <div class="sub-section" id="data-peminjam">
+                    <h2>👥Data Peminjam</h2>
+                    <form>
+                        <input type="text" placeholder="Cari nama / NIM...">
+                        <select>
+                            <option>Semua Jurusan</option>
+                            <option>Informatika</option>
+                            <option>Geomatika</option>
+                            <option>Animasi</option>
+                            <option>Multimedia</option>
+                            <option>Keamanan Siber</option>
+                            <option>RPL</option>
+                            <option>Permainan</option>
+                        </select>
+                        <button class="btn-blue" type="button"
+                            onclick="alert('Data Berhasil disaring!')">Saring</button>
+                        <button class="btn-blue" type="button"
+                            onclick="alert('Formulir Tambah Peminjam Berhasil dibuka!')">+ Tambah Peminjam</button>
+                    </form>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th>Email</th>
+                            <th>Jurusan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Aulia Rahma</td>
+                            <td>2310801</td>
+                            <td>aulia@gmail.com</td>
+                            <td>Informatika</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Rizky Pratama</td>
+                            <td>2310802</td>
+                            <td>rizky@gmail.com</td>
+                            <td>Informatika</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Nabila Putri</td>
+                            <td>2310805</td>
+                            <td>nabila@gmail.com</td>
+                            <td>Informatika</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="sub-section" id="peminjaman">
+                    <h2>📂Peminjaman Barang</h2>
+                    <!-- Baris aksi filter sesuai rancangan wireframe -->
+                    <div class="action-row">
+                        <form>
+                            <input type="text" placeholder="Cari nama / NIM...">
+                            <select>
+                                <option value="semua">Semua Status</option>
+                                <option value="menunggu">Menunggu</option>
+                                <option value="disetujui">Disetujui</option>
+                                <option value="ditolak">Ditolak</option>
+                            </select>
+                            <select>
+                                <option value="semua">Semua Barang</option>
+                                <option value="laptop">Laptop</option>
+                                <option value="proyektor">Proyektor</option>
+                                <option value="kabel_rol_ekstensi">Kabel Rol Ekstensi</option>
+                                <option value="pointer_presentasi_laser">Pointer Presentasi Laser</option>
+                                <option value="speaker_portabel">Speaker Portabel</option>
+                                <option value="mikrofon_wireless">Mikrofon Wireless</option>
+                                <option value="tablet_ipad_sekolah">Tablet Ipad Sekolah</option>
+                                <option value="spidol_papan_tulis">Spidol Papan Tulis</option>
+                                <option value="penghapus_papan_tulis">Penghapus Papan Tulis</option>
+                                <option value="penggaris_panjang_1m">Penggaris Panjang 1M</option>
+                                <option value="stapler_besar_isi">Stapler Besar & Isi</option>
+                                <option value="gunting_dan_cutter">Gunting Dan Cutter</option>
+                                <option value="papan_dada_clipboard">Papan Dada (Clipboard)</option>
+                                <option value="kamus_bahasa">Kamus Bahasa</option>
+                                <option value="peta_globe_fisik">Peta & Globe Fisik</option>
+                                <option value="sapu">Sapu</option>
+                                <option value="kain_pel_dan_ember">Kain Pel Dan Ember</option>
+                                <option value="kemoceng">Kemoceng</option>
+                            </select>
+                            <input type="date" title="Pilih Tanggal Peminjaman">
+                            <select>
+                                <option>Semua Kategori</option>
+                                <option>Perangkat Keras</option>
+                                <option>Fasilitas</option>
+                                <option>ATK</option>
+                                <option>Elektronik</option>
+                                <option>Multimedia</option>
+                                <option>Edukasi</option>
+                            </select>
+                            <select>
+                                <option>Kode Barang</option>
+                                <option>IF-LTP</option>
+                                <option>IF-PYT</option>
+                                <option>IF-KBL</option>
+                                <option>IF-PTR</option>
+                                <option>IF-SPK</option>
+                                <option>IF-MIC</option>
+                                <option>IF-TAB</option>
+                                <option>IF-SPD</option>
+                                <option>IF-PNG</option>
+                                <option>IF-PGR</option>
+                                <option>IF-STP</option>
+                                <option>IF-GNT</option>
+                                <option>IF-PBD</option>
+                                <option>IF-KMS</option>
+                                <option>IF-GLB</option>
+                                <option>IF-SPU</option>
+                                <option>IF-PEL</option>
+                                <option>IF-KMC</option>
+                            </select>
+                            <button class="btn-blue" type="button"
+                                onclick="alert('Data Berhasil disaring!')">Saring</button>
+                            <button class="btn-blue" type="button"
+                                onclick="alert('Formulir pengajuan peminjaman berhasil dibuka!')">+ Ajukan
+                                Peminjaman</button>
+                    </div>
+                    </form>
+
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Peminjam</th>
+                                <th>Kode Barang</th>
+                                <th>Barang</th>
+                                <th>Kategori</th>
+                                <th>Tanggal Pinjam</th>
+                                <th>Tanggal Kembali</th>
+                                <th>Alasan Peminjaman</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Aulia Rahma</td>
+                                <th>IF-LTP-02</th>
+                                <td>Laptop Lenovo</td>
+                                <th>Elektronik</th>
+                                <td>10 Sep 2026</td>
+                                <td>12 Sep 2026</td>
+                                <td>Praktikum Jaringan</td>
+                                <td><span class="status-tag status-waiting">Menunggu</span></td>
+                                <td><button class="btn-blue btn-small" type="button">👁️‍🗨️ Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Rizky Pratama</td>
+                                <th>IF-PYT-04</th>
+                                <td>Proyektor</td>
+                                <th>Elektronik</th>
+                                <td>9 Sep 2026</td>
+                                <td>11 Sep 2026</td>
+                                <td>Presentasi Tugas</td>
+                                <td><span class="status-tag status-active">Disetujui</span></td>
+                                <td><button class="btn-blue btn-small" type="button">👁️‍🗨️ Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Sinta Dewi</td>
+                                <th>IF-KMR-04</th>
+                                <td>Kamera</td>
+                                <th>Multimedia</th>
+                                <td>8 Sep 2026</td>
+                                <td>10 Sep 2026</td>
+                                <td>Dokumentasi Acara</td>
+                                <td><span class="status-tag status-danger">Ditolak</span></td>
+                                <td><button class="btn-blue btn-small" type="button">👁️‍🗨️ Detail</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="sub-section" id="pengembalian">
+                    <h2>🔄Pengembalian Barang</h2>
+                    <div class="action-row">
+                        <form>
+                            <input type="text" placeholder="Cari nama / NIM...">
+                            <select>
+                                <option>Semua Kategori</option>
+                                <option>Perangkat Keras</option>
+                                <option>Aksesoris</option>
+                                <option>Elektronik</option>
+                                <option>Multimedia</option>
+                                <option>Edukasi</option>
+                            </select>
+                            <select>
+                                <option>Semua Status</option>
+                                <option>Diterima</option>
+                                <option>Terlambat</option>
+                            </select>
+                            <select>
+                                <option>Kode Barang</option>
+                                <option>IF-LTP</option>
+                                <option>IF-PYT</option>
+                                <option>IF-KBL</option>
+                                <option>IF-PTR</option>
+                                <option>IF-SPK</option>
+                                <option>IF-MIC</option>
+                                <option>IF-TAB</option>
+                                <option>IF-SPD</option>
+                                <option>IF-PNG</option>
+                                <option>IF-PGR</option>
+                                <option>IF-STP</option>
+                                <option>IF-GNT</option>
+                                <option>IF-PBD</option>
+                                <option>IF-KMS</option>
+                                <option>IF-GLB</option>
+                                <option>IF-SPU</option>
+                                <option>IF-PEL</option>
+                                <option>IF-KMC</option>
+                            </select>
+                            <button class="btn-blue" type="button"
+                                onclick="alert('Data Berhasil disaring!')">Saring</button>
+                        </form>
+                        <button class="btn-blue" type="button"
+                            onclick="alert('Formulir Tambah Peminjam Berhasil dibuka!')">+ Tambah Peminjam</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Peminjam</th>
+                                <th>Kode Barang</th>
+                                <th>Nama Barang</th>
+                                <th>Kategori</th>
+                                <th>Lokasi Asal</th>
+                                <th>Jumlah</th>
+                                <th>Tanggal Pinjam</th>
+                                <th>Tanggal Kembali</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Aulia Rahma</td>
+                                <td>IF-LPT-001</td>
+                                <td>Laptop Lenovo</td>
+                                <td>Elektronik</td>
+                                <td>Ruang Lab 302</td>
+                                <td>1 Unit</td>
+                                <td>10 Sep 2026</td>
+                                <td>11 Sep 2026</td>
+                                <td><span class="status-tag status-active">Diterima</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Nabila Putri</td>
+                                <td>IF-KBL-042</td>
+                                <td>Kabel HDMI 5 Meter</td>
+                                <td>Aksesoris</td>
+                                <td>Ruang Lab 301</td>
+                                <td>1 Unit</td>
+                                <td>6 Sep 2026</td>
+                                <td>11 Sep 2026</td>
+                                <td><span class="status-tag status-danger">Terlambat</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!--===================== MANAJEMEN BARANG ======================= -->
+            <section id="manajemen-barang" class="page-section">
+                <h1>📦Manajemen Barang</h1>
+                <div class="action-row">
+                    <form>
+                        <input type="text" placeholder="Cari nama barang...">
+                        <select>
+                            <option>Semua Kategori</option>
+                            <option>Perangkat Keras</option>
+                            <option>Fasilitas</option>
+                            <option>ATK</option>
+                            <option>Elektronik</option>
+                            <option>Multimedia</option>
+                            <option>Edukasi</option>
+                        </select>
+                        <select>
+                            <option>Semua Kondisi</option>
+                            <option>Baik</option>
+                            <option>Perlu Perbaikan</option>
+                            <option>Rusak</option>
+                        </select>
+                        <select>
+                            <option>Kode Barang</option>
+                            <option>IF-LTP</option>
+                            <option>IF-PYT</option>
+                            <option>IF-KBL</option>
+                            <option>IF-PTR</option>
+                            <option>IF-SPK</option>
+                            <option>IF-MIC</option>
+                            <option>IF-TAB</option>
+                            <option>IF-SPD</option>
+                            <option>IF-PNG</option>
+                            <option>IF-PGR</option>
+                            <option>IF-STP</option>
+                            <option>IF-GNT</option>
+                            <option>IF-PBD</option>
+                            <option>IF-KMS</option>
+                            <option>IF-GLB</option>
+                            <option>IF-SPU</option>
+                            <option>IF-PEL</option>
+                            <option>IF-KMC</option>
+                        </select>
+                        <button class="btn-blue" type="button"
+                            onclick="alert('Data Berhasil disaring!')">Saring</button>
+                    </form>
+                    <button class="btn-blue" type="button" onclick="alert('Formulir Tambah Barang Berhasil dibuka!')">+
+                        Tambah Barang</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Kode Barang</th>
+                            <th>Kategori</th>
+                            <th>Total</th>
+                            <th>Tersedia</th>
+                            <th>Kondisi</th>
+                            <th>Lokasi</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Laptop Lenovo</td>
+                            <td>IF-LPT</td>
+                            <td>Elektronik</td>
+                            <td>5</td>
+                            <td>4</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Proyektor</td>
+                            <td>IF-PYT</td>
+                            <td>Elektronik</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <!-- Data Barang No. 3 dst. -->
+                        <tr>
+                            <td>3</td>
+                            <td>Kabel Rol Ekstensi</td> <!-- Ini adalah Stopkontak / Kabel Rol -->
+                            <td>IF-KBL</td>
+                            <td>Multimedia</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Pointer Presentasi Laser</td>
+                            <td>IF-PTR</td>
+                            <td>Multimedia</td>
+                            <td>8</td>
+                            <td>8</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Speaker Portabel</td>
+                            <td>IF-SPK</td>
+                            <td>Multimedia</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Mikrofon Wireless</td>
+                            <td>IF-MIC</td>
+                            <td>Multimedia</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Tablet iPad Sekolah</td>
+                            <td>IF-TAB</td>
+                            <td>Multimedia</td>
+                            <td>15</td>
+                            <td>14</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Spidol Papan Tulis</td>
+                            <td>IF-SPD</td>
+                            <td>ATK</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Penghapus Papan Tulis</td>
+                            <td>IF-PNG</td>
+                            <td>ATK</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Penggaris Panjang 1m</td>
+                            <td>IF-PGR</td>
+                            <td>ATK</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>Stapler Besar & Isi</td>
+                            <td>IF-STP</td>
+                            <td>ATK</td>
+                            <td>6</td>
+                            <td>6</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>Gunting dan Cutter</td>
+                            <td>IF-GNT</td>
+                            <td>ATK</td>
+                            <td>8</td>
+                            <td>8</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>Papan Dada (Clipboard)</td>
+                            <td>IF-PBD</td>
+                            <td>Edukasi</td>
+                            <td>30</td>
+                            <td>30</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>Kamus Bahasa</td>
+                            <td>IF-KMS</td>
+                            <td>Edukasi</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>Peta & Globe Fisik</td>
+                            <td>IF-GLB</td>
+                            <td>Edukasi</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>Sapu</td>
+                            <td>IF-SPU</td>
+                            <td>Fasilitas</td>
+                            <td>6</td>
+                            <td>6</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>Kain Pel dan Ember</td>
+                            <td>IF-PEL</td>
+                            <td>Fasilitas</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>Kemoceng</td>
+                            <td>IF-KMC</td>
+                            <td>Fasilitas</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td><span class="status-tag status-active">Baik</span></td>
+                            <td>Ruang 704</td>
+                            <td>✏️ 🗑️</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <!--==========MONITORING & LAPORAN==========-->
+            <section id="pemantauan-laporan" class="page-section">
+                <h1>📋Pemantauan & Laporan</h1>
+                <div class="sub-section" id="verifikasi">
+                    <h2>🛡️Persetujuan Verifikasi Admin</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Peminjam</th>
+                                <th>Barang</th>
+                                <th>Tanggal Pinjam</th>
+                                <th>Alasan</th>
+                                <th>Aksi Verifikasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Aulia Rahma</td>
+                                <td>Laptop Lenovo</td>
+                                <td>10 Sep 2026</td>
+                                <td>Praktikum Jaringan</td>
+                                <td>
+                                    <button class="btn-submit" type="button"
+                                        onclick="alert('Peminjaman berhasil disetujui!')">Setujui</button>
+                                    <button class="btn-danger" type="button"
+                                        onclick="alert('Peminjaman telah ditolak!')">Tolak</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="sub-section" id="laporan-kerusakan">
+                    <h2>⚠️Laporan Kerusakan Barang</h2>
+                    <div class="action-row">
+                        <input type="text" placeholder="Cari nama barang...">
+                        <input type="date">
+                        <select>
+                                <option>Semua Tingkat</option>
+                                <option>Ringan</option>
+                                <option>Sedang</option>
+                                <option>Berat</option>
+                            </select>
+                            <select>
+                                <option>Semua Status</option>
+                                <option>Perlu diperbaiki</option>
+                                <option>dalam Perbaikan</option>
+                            </select>
+                        <button class="btn-blue" type="button"
+                            onclick="alert('Formulir Pengajuan Laporan Berhasil dibuka!')">+ Buat Laporan</button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Barang</th>
+                                <th>Kode Barang</th>
+                                <th>Kategori</th>
+                                <th>Peminjam</th>
+                                <th>Tanggal</th>
+                                <th>Detail Kerusakan</th>
+                                <th>Tingkat</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Laptop Lenovo</td>
+                                <td>IF-LPT-001</td>
+                                <td>Elektronik</td>
+                                <td>Aulia Rahma</td>
+                                <td>10 Sep 2026</td>
+                                <td>Layar tidak menyala</td>
+                                <td>Berat</td>
+                                <td><span class="status-tag status-danger">Perlu Diperbaiki</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Proyektor</td>
+                                <td>IF-PYT-001</td>
+                                <td>Elektronik</td>
+                                <td>Rizky Pratama</td>
+                                <td>9 Sep 2026</td>
+                                <td>Lampu indikator mati</td>
+                                <td>Sedang</td>
+                                <td><span class="status-tag status-waiting">Dalam Perbaikan</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="sub-section" id="rekap-peminjaman">
+                    <h2>📈Rekap Peminjaman</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Total Peminjaman</h4>
+                            <div class="value">142</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Tepat Waktu</h4>
+                            <div class="value value-green">128</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Terlambat</h4>
+                            <div class="value value-amber">10</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Kerusakan</h4>
+                            <div class="value value-red">4</div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+
+                <!-- 8. RIWAYAT PEMINJAMAN -->
+                <section id="riwayat-peminjaman" class="page-section">
+                    <h1>🕘Riwayat Peminjaman</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Peminjam</th>
+                                <th>Barang</th>
+                                <th>Kode Barang</th>
+                                <th>Kategori Barang</th>
+                                <th>Tanggal Pinjam</th>
+                                <th>Tanggal Kembali</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Aulia Rahma</td>
+                                <td>Laptop Lenovo</td>
+                                <td>IF-LPT-001</td>
+                                <td>Elektronik</td>
+                                <td>10 Sep 2026</td>
+                                <td>12 Sep 2026</td>
+                                <td><span class="status-tag status-active">Selesai</span></td>
+                            </tr>
+                            <tr> 
+                                <td>2</td> 
+                                <td>Siti Aminah</td> 
+                                <td>Kabel HDMI 5m</td> 
+                                <td>IF-KBL-015</td> 
+                                <td>Multimedia</td> 
+                                <td>01 Sep 2026</td> 
+                                <td>04 Sep 2026</td> 
+                                <td><span class="status-tag status-active">Selesai</span></td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- 11. NOTIFIKASI -->
+                <section id="notifikasi" class="page-section">
+                    <h1>🔔Notifikasi Masuk</h1>
+
+                    <!-- Layout terpisah kiri &amp; kanan -->
+                    <div class="split-flex">
+                        <div class="panel-kiri">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Pesan Pengingat</th>
+                                        <th>Waktu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="unread">
+                                        <td>✅ Peminjaman Laptop Lenovo telah disetujui.</td>
+                                        <td>10 Sep, 09:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>⚠️ Peringatan: Batas waktu pengembalian Barang besok, mohon kembalikan tepat waktu</td>
+                                        <td>7 Sep, 10:05</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Panel detail kotak pesan kanan -->
+                        <div class="panel-kanan">
+                            <h3>Detail Notifikasi</h3>
+                            <hr style="border: 0.5px solid #ddd; margin: 10px 0;">
+                            <p><strong>Peminjaman Laptop Lenovo disetujui</strong></p>
+                            <p style="font-size: 13px; color: #666; margin: 5px 0;">Halo Aulia Rahma, berkas permohonan
+                                peminjaman inventaris alat lab komputer Anda telah divalidasi oleh laboran.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 12. AKUN DAN PENGATURAN -->
+                <section id="akun-pengaturan" class="page-section">
+                    <h1>⚙️Akun dan Pengaturan</h1>
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="avatar-large">👤</div>
+                            <button class="btn-blue" type="button">Ubah Foto</button>
+                        </div>
+                        <div class="input-group">
+                            <label>Nama</label>
+                            <input type="text" value="pengguna">
+                        </div>
+                        <div class="input-group">
+                            <label>NIM</label>
+                            <input type="text" value="2310806">
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+</body>
+
+</html>
